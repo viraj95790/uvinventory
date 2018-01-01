@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+  <definition name="baseLayout" template="/common/pages/tiles/baseLayout.jsp">
+      <put-attribute name="title"  value="Nagpur Inventory Management"/>
+      <put-attribute name="header" value="/common/pages/tiles/BaseHeader.jsp"/>
+       <put-attribute name="menu" value="/common/pages/tiles/menu.jsp"/>
+      <put-attribute name="body"   value="/common/pages/tiles/Body.jsp"/>
+      <put-attribute name="footer"   value="/common/pages/tiles/BaseFooter.jsp"/>
+  </definition>
+  
+    <definition name="baseLayout1" template="/common/pages/tiles/baseLayout.jsp">
+      <put-attribute name="title"  value="Nagpur Inventory Management"/>
+      <put-attribute name="header" value=""/>
+       <put-attribute name="menu" value=""/>
+      <put-attribute name="body"   value="/common/pages/tiles/Body.jsp"/>
+      <put-attribute name="footer"   value=""/>
+  </definition>
+  
+   		<definition name="sessionExpire" extends="baseLayout">
+   			 <put-attribute name="menu" value=""/>
+	    	<put-attribute name="body" value="/user/pages/sessionExpire.jsp"/> 
+	    </definition>
+
+  
+ 
+  <definition name="homepage" extends="baseLayout">
+   	<put-attribute name="body" value="/common/pages/homepage.jsp"/>      
+  </definition>
+  
+   <definition name="inputregister" extends="baseLayout">
+   	<put-attribute name="body" value="/user/pages/registration.jsp"/>      
+  </definition>
+  
+  
+  <definition name="inputlogin" extends="baseLayout">
+   	<put-attribute name="body" value="/user/pages/login.jsp"/>      
+  </definition>
+  
+   <definition name="logout" extends="baseLayout">
+   	<put-attribute name="body" value="/user/pages/loggedout.jsp"/>      
+  </definition>
+  
+   <definition name="addBranch" extends="baseLayout">
+   	<put-attribute name="body" value="/user/pages/registration.jsp"/>      
+  </definition>
+
+	<definition name="branchList" extends="baseLayout">
+   		<put-attribute name="body" value="/user/pages/branch.jsp"/>      
+  	</definition>
+    
+    
+ <definition name="saveBranch" extends="baseLayout">
+   		<put-attribute name="body" value="/user/pages/addbranchsuccess.jsp"/>      
+  	</definition>
+  
+  <definition name="editBranch" extends="baseLayout">
+   		<put-attribute name="body" value="/user/pages/editBranch.jsp"/>      
+  	</definition>
+  	
+  	
+  	<definition name="categoryList" extends="baseLayout">
+   		<put-attribute name="body" value="/user/pages/categoryList.jsp"/>      
+  	</definition>
+  	
+  	
+  	<definition name="addCategory" extends="baseLayout">
+   		<put-attribute name="body" value="/user/pages/addCategory.jsp"/>      
+  	</definition>
+  	
+   
+ 	<definition name="editCategory" extends="baseLayout">
+   		<put-attribute name="body" value="/user/pages/editCategory.jsp"/>      
+  	</definition>
+  
+  
+  
+  	<definition name="productList" extends="baseLayout">
+   		<put-attribute name="body" value="/user/pages/productList.jsp"/>      
+  	</definition>
+  	
+  	
+  	<definition name="addProduct" extends="baseLayout">
+   		<put-attribute name="body" value="/user/pages/addProduct.jsp"/>      
+  	</definition>
+  	
+  	<definition name="editProduct" extends="baseLayout">
+   		<put-attribute name="body" value="/user/pages/editProduct.jsp"/>      
+  	</definition>
+  	
+  	<definition name="stockList" extends="baseLayout">
+   		<put-attribute name="body" value="/user/pages/stockList.jsp"/>      
+  	</definition>
+ 	
+ 	<definition name="adminStock" extends="baseLayout">
+   		<put-attribute name="body" value="/user/pages/adminStock.jsp"/>      
+  	</definition>
+  	
+  	
+  	<definition name="adminProduct" extends="baseLayout">
+   		<put-attribute name="body" value="/user/pages/adminProduct.jsp"/>      
+  	</definition>
+  	
+  	
+  	<definition name="subCategoryList" extends="baseLayout">
+   		<put-attribute name="body" value="/user/pages/subCategoryList.jsp"/>      
+  	</definition>
+ 
+ <!--Admin Bill module  -->
+  	<definition name="productBillList" extends="baseLayout">
+   		<put-attribute name="body" value="/user/pages/productBill.jsp"/>      
+  	</definition>
+  
+  
+  <!-- Admin Subcatagory Module  -->
+  	
+  	
+  	
+  	<definition name="subcatgoryList" extends="baseLayout">
+   		<put-attribute name="body" value="/user/pages/adminSubcategoryList.jsp"/>      
+  	</definition>
+  	
+  	<definition name="editAdminSubcategory" extends="baseLayout">
+   		<put-attribute name="body" value="/user/pages/editAdminSubcategory.jsp"/>      
+  	</definition>
+  	
+  	
+  	<definition name="printadminstock" extends="baseLayout">
+  		 <put-attribute name="menu" value=""/>
+   		<put-attribute name="body" value="/user/pages/printadminstock.jsp"/>      
+  	</definition>
+  	
+  	
+  	<definition name="printadminbill" extends="baseLayout">
+  		 <put-attribute name="menu" value=""/>
+   		<put-attribute name="body" value="/user/pages/printadminbill.jsp"/>      
+  	</definition>
+  	
+  	<definition name="addCustomCake" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/addCustomCake.jsp"/>      
+  	</definition>
+  	
+  	<definition name="customcake" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/customcake.jsp"/>      
+  	</definition>
+  	
+  	<definition name="editCustomCake" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/editCustomCake.jsp"/>      
+  	</definition>
+  	
+  	<definition name="inputsale" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/inputSale.jsp"/>      
+  	</definition>
+  	
+  	<definition name="inputpurchase" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/inputPurchase.jsp"/>      
+  	</definition>
+  	
+  		<definition name="invoice" extends="baseLayout">
+  		 <put-attribute name="header" value=""/>
+       <put-attribute name="menu" value=""/>
+       <put-attribute name="footer" value=""/>
+  		<put-attribute name="body" value="/user/pages/invoice.jsp"/>      
+  	</definition>
+  
+  	<definition name="invoiceList" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/invoiceList.jsp"/>      
+  	</definition>
+  	
+  	<definition name="purchaseinvoice" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/purchaseInvoice.jsp"/>      
+  	</definition>
+  	
+  	<!-- salesman -->
+  	
+  	<definition name="addSalesMan" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/addSalesMan.jsp"/>      
+  	</definition>
+  	
+  		<definition name="salesManList" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/salesManList.jsp"/>      
+  	</definition>
+  	
+  	<definition name="editSalesMan" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/editSalesMan.jsp"/>      
+  	</definition>
+  	
+  	<definition name="addAttendance" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/addAttendance.jsp"/>      
+  	</definition>
+  	
+  	<definition name="inputsalesmaninvoicereport" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/salesManInvoiceReport.jsp"/>      
+  	</definition>
+  	
+  	<definition name="addBarcode" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/addBarcode.jsp"/>      
+  	</definition>
+  	
+  	<definition name="barcodelist" extends="baseLayout">
+  		 <put-attribute name="header" value=""/>
+          <put-attribute name="menu" value=""/>
+          <put-attribute name="footer" value=""/>
+  		<put-attribute name="body" value="/user/pages/barcodeList.jsp"/>      
+  	</definition>
+  	
+  	
+  	<definition name="addcolor" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/addColor.jsp"/>      
+  	</definition>
+  	
+  	<definition name="productsize" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/productSize.jsp"/>      
+  	</definition>
+  	
+  	<definition name="inputsalereturn" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/inputSaleReturn.jsp"/>      
+  	</definition>
+  	
+  	<definition name="salereturnInvoice" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/salereturnInvoice.jsp"/>      
+  	</definition>
+  	
+  	<definition name="editproductsize" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/editProductSize.jsp"/>      
+  	</definition>
+  	
+  	<definition name="attendanceList" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/attendanceList.jsp"/>      
+  	</definition>
+  	
+  	<definition name="colorList" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/colorList.jsp"/>      
+  	</definition>
+  	
+  	<definition name="editcolor" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/editColor.jsp"/>      
+  	</definition>
+  	
+  	
+  	<!-- Accessories -->
+  	<definition name="accessoriesList" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/accessoriesList.jsp"/>      
+  	</definition>
+  	
+  	<definition name="editAccessories" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/editAccessories.jsp"/>      
+  	</definition>
+  	
+  	<definition name="addAccessories" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/addAccessories.jsp"/>      
+  	</definition>
+  	
+  	<definition name="purchaseaccount" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/purchaseaccount.jsp"/>      
+  	</definition>
+  	
+  	<definition name="purchasepayment" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/purchasepayment.jsp"/>      
+  	</definition>
+  	
+  	<definition name="saleaccount" extends="baseLayout1">
+  		<put-attribute name="body" value="/user/pages/saleaccount.jsp"/>      
+  	</definition>
+  	
+  	<definition name="saleaccount" extends="baseLayout1">
+  		<put-attribute name="body" value="/user/pages/saleaccount.jsp"/>      
+  	</definition>
+  	
+  	<definition name="salerecord" extends="baseLayout1">
+  		<put-attribute name="body" value="/user/pages/salerecord.jsp"/>      
+  	</definition>
+  	
+  	<definition name="popupbarcode" extends="baseLayout1">
+  		<put-attribute name="body" value="/user/pages/addBarcode.jsp"/>      
+  	</definition>
+  	
+  	
+  	<definition name="customerdisplay" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/customer_display.jsp"/>      
+  	</definition>
+  	
+  	<definition name="customerreg" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/customer_register.jsp"/>      
+  	</definition>
+  	
+  	<definition name="vendor" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/vendor_register.jsp"/>      
+  	</definition>
+  	
+  	<definition name="edit_customer" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/customer_edit.jsp"/>      
+  	</definition>
+  	
+  	<definition name="edit_vendor" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/vendor_edit.jsp"/>      
+  	</definition>
+  	
+  	<definition name="registration" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/registration.jsp"/>      
+  	</definition>
+  	
+  	<definition name="branchList" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/BranchList.jsp"/>      
+  	</definition>
+  	
+  	<definition name="editshop" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/editshop.jsp"/>	      
+  	</definition>
+  	
+  	<definition name="payroll" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/payroll.jsp"/>      
+  	</definition>
+  	
+  	<definition name="payrollexp" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/payrollexpenses.jsp"/>      
+  	</definition>
+  	
+  	<definition name="deadStock" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/deadStock.jsp"/>      
+  	</definition>
+  	
+  	<definition name="profitLoss" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/profitLoss.jsp"/>      
+  	</definition>
+  	
+  	<definition name="sendSms" extends="baseLayout">
+  		<put-attribute name="body" value="/user/pages/sendSms.jsp"/>      
+  	</definition>
+  	
+  	
+</tiles-definitions>

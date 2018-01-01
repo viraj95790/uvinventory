@@ -1,0 +1,416 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	/*background-image: url(../images/BG_Back.gif);
+	background-repeat: repeat;
+	font-family: verdana;
+	font-size: 11px;*/
+}
+
+
+.TopLine
+{
+background-image:url(../images/TopLine.gif);
+background-repeat:repeat-x;
+width:100%px;
+height:106px;
+}
+.Top
+{
+width:100%;
+height:106px;
+margin:auto;
+padding-top:11px;
+}
+.OnlineTestLogo
+{
+width:234px;
+height:94px;
+background-image:url(../images/OnlineTestLogo.gif);
+background-repeat:no-repeat;
+display:inline;
+float:left;
+margin-left:35px;
+
+}
+.ClickHere
+{
+
+width:371px;
+height:51px;
+display:inline;
+float:right;
+margin-top:15px;
+padding-right:30px;
+}
+
+.Menu
+{
+background-image:url(../images/MenuBG1.gif);
+background-repeat:repeat-x;
+width:100%;
+height:46px;
+}
+.MainMenu
+{
+width:100%;
+height:46px;
+margin:auto;
+
+}
+.BannerLine
+{
+background-image:url(../images/BannerLine.gif);
+background-repeat:repeat-x;
+width:100%;
+height:337px;
+padding-top:15px;
+}
+.FlashBanner
+{
+
+width:968px;
+height:351px;
+margin:auto;
+
+}
+
+.Body
+{
+width:100%;
+height:650px;
+margin:auto;
+}
+
+.BodyHome
+{
+width:100%;
+height:300px;
+margin:auto;
+}
+
+.BodyHomeAc
+{
+width:100%;
+height:650px;
+margin:auto;
+}
+
+.Bodyleft
+{
+width:307px;
+height:0px;
+padding-top:35px;
+
+display:inline;
+float:right;
+}
+
+.BodyRight
+{
+width:629px;
+height:300px;
+padding-top:35px;
+margin-left:35px;
+display:inline;
+float:left;
+
+}
+
+.Footer
+{
+background-image:url(../images/Footer.gif);
+background-repeat:repeat-x;
+width:100%;
+height:82px;
+
+}
+.FooterMain
+{
+width:100%;
+height:82px;
+margin:auto;
+
+
+
+
+}
+
+.DimensionLogo
+{
+
+width:209px;
+height:82px;
+display:inline;
+
+
+
+
+}
+
+.copyright {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	color: #FFFFFF;
+	text-align:center;
+	display:inline;
+	float:right;
+	text-align:center;
+	margin-left:100px;
+	width:200px;
+padding-top:40px;
+padding-right:400px;
+	
+}
+
+.ContactUs {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	color: #0066FF;
+}
+.TextBlack {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	color: #333333;
+}
+.Homebodyleft
+{
+padding-top:35px;
+margin-left:35px;
+color:#0066FF;
+font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 18px;
+	font-size:x-large;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	
+	
+}
+.Getyourselfexam
+{
+    color:#333333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+	line-height: normal;
+	font-weight: Normal;
+	font-variant: normal;
+	padding-top:8px;
+	padding-top:10px;
+    margin-left:35px;
+	
+}
+.TIkmark
+{
+background-image:url(../images/Tikmark.gif);
+background-repeat:no-repeat;
+height:16px;
+margin-left:65px;
+margin-top:15px;
+padding-left:30px;
+font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	color: #333333;
+
+
+}
+
+.main_layout_content {
+	padding:3px;
+	width: 100%;
+	float: left;
+	margin-bottom: 2px;
+	
+	 color:#333333;
+    font-family: verdana;
+    font-size: 14px;
+    font-style: normal;
+	line-height: normal;
+	font-weight: Normal;
+	font-variant: normal;
+	
+}
+
+.block_div {
+	
+	padding: 1em;
+	border: 0.1em solid silver;
+	-moz-border-radius: 0.5em;			
+    -webkit-border-radius: 0.5em;
+    -khtml-border-radius: 0.5em;
+    border-radius: 0.5em;
+	
+	background: white;
+	-moz-box-shadow:0 0 0.7em silver;
+	-webkit-box-shadow:0 0 0.7em silver;
+}
+
+.block_div h4{
+	margin: 0;
+}
+
+.submit_options {
+	margin-top: 1em;
+	text-align: center;
+}
+
+.submit_options div{
+	display: inline;
+}
+
+.form_elements{
+	margin: 1em;
+	margin-left: 2em;
+	margin-top: 2em;
+}
+
+.wwlbl {
+	text-align: right;
+    float: left;
+    width:22%; 
+    margin-right: 0.4em;
+}
+
+.label{
+	vertical-align: middle;
+}
+
+.wwgrp{
+	margin: 0.5em;
+	margin-top: 0.8em;
+}
+
+.wwgrp label{
+	margin-left: 0.2em;
+}
+
+.wwctrl input, .wwctrl textarea {
+	margin-right: 0.2em;
+	width: 15em;
+}
+
+
+
+.error,.errorMessage,.required {
+	color:#CC2900;
+	font-size: 5;
+}
+
+input.error, textarea.error, select.error, input[type="checkbox"].error{
+	background: ##141DF7;
+	font-size: 5;
+}
+
+.message {
+	color: #3117F3;
+	font-weight: bold;
+}
+
+.reqd-info {
+COLOR: #cc0000;
+}
+
+
+.my-table {
+background:#FFFFFF;
+color:#666666;
+font-family:Arial,Helvetica,sans-serif;
+font-size:62.5%;
+border-left:1px solid #DFD8D4;
+font-size:1em;
+width:50%;
+}
+
+.my-table caption {
+font-size:1.4em;
+font-weight:bold;
+padding:6px;
+text-align:left;
+}
+.my-table th {
+background:transparent url(../imgs/table_header.gif) no-repeat scroll 0 0;
+border-bottom:1px solid #DFD8D4;
+border-right:1px solid #DFD8D4;
+border-top:1px solid #DFD8D4;
+padding:6px 6px 6px 12px;
+text-align:left;
+font-weight:bold;
+font-size: small;
+}
+.my-table td {
+border-bottom:1px solid #DFD8D4;
+border-right:1px solid #DFD8D4;
+padding:6px 6px 6px 12px;
+font-size: small;
+}
+.my-table td.highlighted {
+background:#FFB766 none repeat scroll 0 0;
+color:#FFFFFF;
+}
+.my-table th.fixed {
+width:80px;
+}
+.my-table td.fixed {
+width:80px;
+}
+.my-table td.odd-fixed {
+background:#F7F5F4 none repeat scroll 0 0;
+width:80px;
+}
+.my-table td.odd {
+background:#F7F5F4 none repeat scroll 0 0;
+border-bottom:1px solid #DFD8D4;
+border-right:1px solid #DFD8D4;
+padding:6px 6px 6px 12px;
+}
+
+.ac_odd {
+	background-color: #eee;
+}
+
+.ac_over {
+	background-color: #0A246A;
+	color: white;
+}
+
+
+#container{
+        margin-left:auto;
+        margin-right:auto;
+        width:700px;
+        background-color:#eee9e9;
+        padding:5px;
+  }
+  div.item {
+       clear: both;
+  }
+  div.item p {
+       float: left;
+       width: 400px;
+  }
+  div.item p.comment {
+       padding-left: 10px;
+       width: 260px;
+  }
+
+

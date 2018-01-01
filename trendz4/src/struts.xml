@@ -1,0 +1,212 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	 
+	 
+  <package name="default" extends="struts-default">
+
+    
+        <result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+		
+		<global-results>
+  			<result name="login" type="tiles">sessionExpire</result>
+  		</global-results>
+		
+       <action name="*Default" method="{1}" class="com.inventorymanagement.main.web.action.DefaultUserAction">
+			<result name="homepage" type="tiles">homepage</result>
+		</action>
+		
+		<action name="*Branch" method="{1}" class="com.inventorymanagement.main.web.action.BranchAction">
+			<result name="input" type="tiles">addBranch</result>
+			<result name="save" type="tiles">saveBranch</result>
+			<result name="success" type="tiles">branchList</result>
+			<result name="edit" type="tiles">editBranch</result>
+			<result name="update" type="redirect">Branch</result>
+			<result name="delete" type="redirect">Branch</result>
+			<result name="inputshop" type="tiles">registration</result>
+			<result name="getedit" type="tiles">editshop</result>
+		</action>
+		
+		
+		 <action name="*CheckUserId" method="{1}" class="com.inventorymanagement.main.web.action.CheckUserIdAction">
+		 </action>
+		
+		 <action name="*CheckEmployeeID" method="{1}" class="com.inventorymanagement.main.web.action.CheckEmployeeIDAction">
+		 </action>
+		 
+		<action name="*Login" method="{1}" class="com.inventorymanagement.main.web.action.LoginAction">
+			 <result name="input" type="tiles">inputlogin</result>
+            <result name="success" type="redirect">Default</result>
+		</action>
+		
+		 <action name="*Logout" method="{1}" class="com.inventorymanagement.main.web.action.LogoutAction">
+           <result name="success" type="tiles">logout</result>
+        </action> 
+        
+         <action name="*Category" method="{1}" class="com.inventorymanagement.main.web.action.CategoryAction">
+           <result name="success" type="tiles">categoryList</result>
+           <result name="input" type="tiles">addCategory</result>
+            <result name="save" type="redirect">Category</result>
+             <result name="edit" type="tiles">editCategory</result>
+            <result name="update" type="redirect">Category</result>
+			<result name="delete" type="redirect">Category</result>
+         </action>
+         
+         <action name="*CheckCategoryName" method="{1}" class="com.inventorymanagement.main.web.action.CheckCategoryNameAction">
+		 </action>
+         
+          <action name="*Product" method="{1}" class="com.inventorymanagement.main.web.action.ProductAction">
+           <result name="success" type="tiles">productList</result>
+           <result name="input" type="tiles">addProduct</result>
+           <result name="save" type="redirect">Product</result>
+           <result name="edit" type="tiles">editProduct</result>
+             <result name="update" type="redirect">Product</result>
+			<result name="delete" type="redirect">Product</result>
+			<result name="stock" type="tiles">stockList</result>
+			<result name="adminStock" type="tiles">adminStock</result>
+			<result name="adminProduct" type="tiles">adminProduct</result>
+			<result name="subCategoryList" type="redirect">AdminSubcategory</result>
+			<result name="print" type="tiles">printadminstock</result>
+			<result name="productsize" type="tiles">productsize</result>
+			<result name="editproductsize" type="tiles">editproductsize</result>
+			<result name="savesize" type="tiles">productsize</result>
+			<result name="deletesize" type="tiles">productsize</result>
+        </action>  
+        
+         <action name="*CheckProductName" method="{1}" class="com.inventorymanagement.main.web.action.CheckProductNameAction">
+		 </action>
+		
+		 <action name="*AdminBill" method="{1}" class="com.inventorymanagement.main.web.action.AdminBillAction">
+           <result name="success" type="tiles">productBillList</result>
+           <result name="print" type="tiles">printadminbill</result>
+        </action> 
+        
+        <action name="*AdminSubcategory" method="{1}" class="com.inventorymanagement.main.web.action.AdminSubcategoryAction">
+           <result name="success" type="tiles">subcatgoryList</result>
+           <result name="edit" type="tiles">editAdminSubcategory</result>
+           <result name="update" type="redirect">AdminSubcategory</result>
+           <result name="delete" type="redirect">AdminSubcategory</result>
+         </action> 
+         
+          <action name="*CustomCake" method="{1}" class="com.inventorymanagement.main.web.action.CustomCakeAction">
+           <result name="input" type="tiles">addCustomCake</result>
+         	<result name="success" type="tiles">customcake</result>
+         	<result name="save" type="redirect">CustomCake</result>
+         	<result name="edit" type="tiles">editCustomCake</result>
+         	<result name="editsave" type="redirect">CustomCake</result>
+         	<result name="delete" type="redirect">CustomCake</result>
+         	<result name="changestatus" type="redirect">CustomCake</result>
+        </action> 
+        
+         <action name="*Sale" method="{1}" class="com.inventorymanagement.main.web.action.SaleAction">
+         	<result name="input" type="tiles">inputsale</result>
+          	<result name="success" type="redirect">viewinvoiceSale</result>
+          	<result name="viewinvoice" type="tiles">invoice</result>
+        </action>
+        
+         <action name="*Purchase" method="{1}" class="com.inventorymanagement.main.web.action.PurchaseAction">
+           <result name="input" type="tiles">inputpurchase</result>
+          	<result name="success" type="redirect">PurchaseInvoice</result>
+        </action> 
+        
+        
+        <action name="*SaleReturn" method="{1}" class="com.inventorymanagement.main.web.action.SaleReturnAction">
+           <result name="input" type="tiles">inputsalereturn</result>
+           <result name="selereturn" type="tiles">salereturnInvoice</result>
+          <result name="success" type="redirect">backSaleReturn</result>
+          <result name="move" type="tiles">salereturnInvoice</result>
+          <result name="delete" type="tiles">salereturnInvoice</result>
+        </action> 
+         
+        
+        
+        <action name="*InvoiceReport" method="{1}" class="com.inventorymanagement.main.web.action.InvoiceReportAction">
+        	<result name="success" type="tiles">invoiceList</result>
+        	<result name="input" type="tiles">inputsalesmaninvoicereport</result>
+        	<result name="salesmaninvoicereport" type="tiles">inputsalesmaninvoicereport</result>
+        	<result name="saleaccount" type="tiles">saleaccount</result>
+        	<result name="salerecord" type="tiles">salerecord</result>
+        	<result name="payment" type="redirect">accountInvoiceReport</result>
+        	<result name="display" type="tiles">payroll</result>
+        	<result name="payrollex" type="tiles">payrollexp</result>
+        	<result name="expense" type="redirect">displayInvoiceReport</result>
+        	
+        	
+        </action> 
+		
+		
+		 <action name="*PurchaseInvoice" method="{1}" class="com.inventorymanagement.main.web.action.PurchaseInvoiceAction">
+          <result name="success" type="tiles">purchaseinvoice</result>
+          <result name="purchaseaccount" type="tiles">purchaseaccount</result>
+          <result name="purchasepayment" type="tiles">purchasepayment</result>
+          <result name="payment" type="redirect">accountPurchaseInvoice</result>
+        </action>  
+        
+        
+         <action name="*SalesMan" method="{1}" class="com.inventorymanagement.main.web.action.SalesManAction">
+         
+           <result name="success" type="tiles">salesManList</result>
+           <result name="input" type="tiles">addSalesMan</result>
+            <result name="save" type="redirect">SalesMan</result>
+             <result name="edit" type="tiles">editSalesMan</result>
+            <result name="editsave" type="redirect">SalesMan</result>
+			<result name="delete" type="redirect">SalesMan</result>
+			
+         </action>
+         
+          <action name="*Attendance" method="{1}" class="com.inventorymanagement.main.web.action.AttendanceAction">
+         	 <result name="input" type="tiles">addAttendance</result>
+         	 <result name="save" type="tiles">addAttendance</result>
+         	 <result name="success" type="tiles">attendanceList</result>
+        </action> 
+        
+          <action name="*Barcode" method="{1}" class="com.inventorymanagement.main.web.action.BarcodeGeneratorAction">
+          	<result name="input" type="tiles">addBarcode</result>
+          	<result name="success" type="tiles">barcodelist</result>
+         	<result name="popupbarcode" type="tiles">popupbarcode</result>
+        </action>
+        
+          <action name="*Color" method="{1}" class="com.inventorymanagement.main.web.action.ColorAction">
+          	<result name="input" type="tiles">addcolor</result>
+          	<result name="save" type="redirect">Color</result>
+          	<result name="success" type="tiles">colorList</result>
+          	<result name="edit" type="tiles">editcolor</result>
+          	<result name="editsave" type="redirect">Color</result>
+          	<result name="delete" type="redirect">Color</result>
+         	
+        </action> 
+        
+          <action name="*Accessories" method="{1}" class="com.inventorymanagement.main.web.action.AccessoriesAction">
+          	<result name="input" type="tiles">addAccessories</result>
+          	<result name="success" type="tiles">accessoriesList</result>
+          	<result name="save" type="redirect">Accessories</result>
+          	<result name="edit" type="tiles">editAccessories</result>
+          	<result name="editsave" type="redirect">Accessories</result>
+          	<result name="delete" type="redirect">Accessories</result>
+        </action>
+        
+        <action name="*Customer" method="{1}" class="com.inventorymanagement.main.web.action.CustomerAction">
+          	<result name="success" type="tiles">customerdisplay</result>
+          	<result name="input" type="tiles">customerreg</result>
+          	<result name="vendor" type="tiles">vendor</result>
+          	<result name="edit" type="tiles">edit_customer</result>
+          	<result name="vendor1" type="tiles">edit_vendor</result>
+        </action>
+        
+        <action name="*Report" method="{1}" class="com.inventorymanagement.main.web.action.ReportAction">
+          	<result name="success" type="tiles">deadStock</result>
+          	<result name="profitloss" type="tiles">profitLoss</result>
+        </action>
+        
+         <action name="*Sendsms" method="{1}" class="com.inventorymanagement.main.web.action.SendsmsAction">
+          	<result name="success" type="tiles">sendSms</result>
+          	
+        </action>
+		    
+    </package>
+</struts>
