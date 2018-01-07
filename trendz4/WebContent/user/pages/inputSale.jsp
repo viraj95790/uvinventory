@@ -1,359 +1,306 @@
-<%@taglib uri="/struts-tags" prefix="s"%>
-<script type="text/javascript" src="user/js/sale.js"></script>
-<script type="text/javascript" src="user/js/gender.js"></script>
-
-<!--   <link rel="stylesheet" href="chosen/docsupport/style.css">
-  <link rel="stylesheet" href="chosen/docsupport/prism.css"> -->
-  <link rel="stylesheet" href="chosen/chosen.css">
-
-<div id="login_main" class="main_layout_content">
-	<h2 class="heading">Sale</h2>
-	<span id="mandatory_message" class="error">Note:Fields marked
-		with asterisk(*) are required.</span>
-	<div id="login" class="block_div">
-
-		<span class="error"><s:actionerror id="server_side_error" /></span>
-		<s:form action="Sale" id="product_form" theme="simple">
-
-			<table width="100%">
-				<tr>
-					<td width="15%">Barcode Data :</td>
-
-					<td width="2%"><s:textarea name="barcodeData" id="barcodeData"
-							onchange="setPsizeID(this.value)" disabled="" /></td>
-					<td><input type="checkbox" name="chb" id="chb" checked="checked"
-						onclick="setEnable();"> <a href="inputSale">Click here
-							for manual entry</a></td>
-					<!--<td><input type="checkbox" name="cha" id="cha" onclick="setAccessories();"> 
-							<a href="#">Accessories</a>
-						</td>
-					-->
-				</tr>
-			</table>
-
-			<table width="100%" style="font-size: 12px;">
-				<tr>
-					<td width="40%">
-
-						<table width="100%"
-							style="border: 1px solid #e69623; height: auto; padding: 1em;"
-							id="dropdowntable">
-							<col width="10%" />
-							<col width="2%" />
-							<col width="20%" />
-							<tr>
-								<td>Select Gender<span class="reqd-info">*</span></td>
-								<td align="center">:</td>
-								<td><s:select onchange="setGenderAjax(this.value)"
-										list="#{'0':'Select Gender','1':'Gents','2':'Ladies','3':'Accessories'}"
-										theme="simple" name="gender" id="gender" /></td>
-							</tr>
-							<tr>
-								<td>Category<span class="reqd-info">*</span></td>
-								<td align="center">:</td>
-								<td id="gendercategory">
-									<!--<s:select name="categoryID" id="categoryID" list="categoryList" listKey="id" listValue="categoryName" headerKey="0" headerValue="Select Category" label="Select Category" onchange="setSubCategory(this.value)" />
-								--> <select name="category">
-										<option value="0">Select Category</option>
-								</select>
-								</td>
+<%@ taglib prefix="s" uri="/struts-tags" %>   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+   <link rel="stylesheet" href="chosen/chosen.css">
+</head>
+<body>
 
 
-							</tr>
-							<tr>
-								<td>Product Name<span class="reqd-info">*</span></td>
-								<td align="center">:</td>
-								<td id="productajax"><select name="productName">
-										<option value="0">Select SubCategory</option>
-								</select></td>
-							</tr>
-
-						</table>
-						<table width="100%" id="purchasetable"
-							style="border: 1px solid #e69623; height: auto; padding: 1em;">
-
-							<col width="20%" />
-							<col width="3%" />
-							<col width="20%" />
-							<tr>
-								<td>Stock<span class="reqd-info">*</span></td>
-								<td align="center">:</td>
-								<td id="stockajax"><s:textarea id="stock" name="stock"
-										readonly="true" /></td>
-							</tr>
-
-							<tr>
-								<td>Stock Color<span class="reqd-info">*</span></td>
-								<td align="center">:</td>
-								<td id="stockcolorajax"><s:textarea id="stockcolor"
-										name="stockcolor" readonly="true" /></td>
-							</tr>
-
-							<tr>
-								<td>Stock Quantity<span class="reqd-info">*</span></td>
-								<td align="center">:</td>
-								<td><s:textfield id="stockQuantity" name="stockQuantity"
-										readonly="true" size="5" /></td>
-							</tr>
-
-							<tr>
-								<td>Model No.<span class="reqd-info">*</span></td>
-								<td align="center">:</td>
-								<td><s:textfield id="modelnumber" name="modelNumber"
-										title="Enter Model Number" /></td>
-							</tr>
-
-							<tr>
-								<td>Article No.<span class="reqd-info">*</span></td>
-								<td align="center">:</td>
-								<td><s:textfield id="articlenumber" name="articleNumber"
-										title="Enter Article Number" /></td>
-							</tr>
-							<tr>
-								<td>Add Color<span class="reqd-info">*</span></td>
-								<td align="center">:</td>
-								<td><s:select theme="simple" id="adcolor" name="colorId"
-										list="colorList" listKey="colorId" listValue="colorName"
-										headerKey="0" headerValue="Select Color"
-										onchange="setBranch(this.value)" /> <input type="button"
-									value="Add" id="adcolorbtn" onclick="addColor()" /> <input
-									type="button" value="Remove" id="rmovecolorbtn"
-									onclick="removeColor()" /></td>
-
-
-							</tr>
-							<tr>
-								<td>Color<span class="reqd-info">*</span></td>
-								<td align="center">:</td>
-								<td><s:textarea id="color" name="color" title="Enter color"
-										readonly="true" /></td>
-							</tr>
-							<tr>
-								<td>Price<span class="reqd-info">*</span></td>
-								<td align="center">:</td>
-								<td id="priceajax"><input type="text" id="price"
-									name="price" title="Enter Price" size="5"
-									style="text-align: center;" /></td>
-							</tr>
-							<tr>
-								<td>Add Size<span class="reqd-info">*</span></td>
-								<td align="center">:</td>
-								<td><select name="adsize" id="adsize">
-										<option value="0">Select</option>
-										<option>05</option>
-										<option>06</option>
-										<option>07</option>
-										<option>08</option>
-										<option>09</option>
-										<option>10</option>
-										<option>11</option>
-										<option>12</option>
-								</select> <input type="button" id="adsizebtn" value="Add"
-									onclick="addSize();" /> <input type="button" id="rmovesizebtn"
-									value="Remove" onclick="RemoveSize();" /></td>
-							</tr>
-							<tr>
-								<td>View Size<span class="reqd-info">*</span></td>
-								<td align="center">:</td>
-								<td><s:textarea id="viewsize" name="viewsize"
-										readonly="true" /></td>
-							</tr>
-
-							<tr>
-								<td>Quantity<span class="reqd-info">*</span></td>
-								<td align="center">:</td>
-								<td><input type="text" id="quantity" name="quantity"
-									readonly="readonly" size="5" style="text-align: center;" /></td>
-							</tr>
-
-							<tr>
-								<td>Image<span class="reqd-info">*</span></td>
-								<td align="center">:</td>
-								<td>
-									<!--<img src="/inventorymanagement/image/<s:property value="uploadedimage"/>"/>
-											
-								--></td>
-
-							</tr>
-
-
-
-
-						</table>
-
-
-					
-
-
-
-					</td>
-					<td align="center" width="10%" id="adrmovtd"><input
-						type="button" id="addbtn" value="Add" onclick="save();" /> <input
-						type="button" id="rmovbtn" value="Remove" onclick="deletesale();" />
-
-					</td>
-					<td width="50%" valign="top" id="saletable">
-						<table width="100%"
-							style="border: 1px solid #e69623; height: auto; padding: 1em; font-size: 12px; table-layout: fixed;">
-							<input type="hidden" name="itemsize" id="itemsize" value="0">
-							<col width="5%" />
-							<col width="15%" />
-							<col width="10%" />
-							<col width="10%" />
-							<col width="10%" />
-							<col width="10%" />
-							<tr>
-								<th></th>
-								<th align="left">Product Name</th>
-								<th align="left">Size</th>
-								<th align="left">M.R.P</th>
-								<th align="left">Quantity</th>
-								<th align="left">Total</th>
-
-							</tr>
-							<!--<tr>
-									<td><input type="checkbox" name="chksale"></td>
-									<td style="padding-left: 10px;">Magi Soup</td>
-									<td style="padding-left: 0px;">20.0</td>
-									<td style="padding-left: 20px;">3</td>
-									<td>100.00</td>
-								</tr>
-								<tr>
-									<td colspan="5"><hr></hr></td>
-								</tr>
-								<tr>
-									<td colspan="5">
-										<table width="100%">
-											<col width="80%"/>
-											<col width="20%"/>
-											<tr>
-												<td>Anount to Pay</td>
-												<td>1000.00</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
+<s:form action="" theme="simple">
+			<div class="col-lg-12 col-md-12 col-sm-12 searchtab">
+							<div class="col-lg-1 col-md-1 col-sm-2 col-xs-3">
+								<label for="inputEmail3" class="text-left">Search :</label>
+							</div>
+							<div class="col-lg-5 col-md-5 col-sm-8 col-xs-3">
+							<div class="form-group">
+								<%-- <s:select list="pharmapatientlist" theme="simple" name="epname" onchange="selectExternalPatient(this.value)" cssClass="form-control chosen-select" id="epname" listKey="id" listValue="allinfo" headerKey="0" headerValue="Select Existing Patient">
+								</s:select>  --%>
+								<input type="text" name="inhousepid" id="inhousepid" class="form-control" onclick="showInhousePatientPopup()"  placeholder="Search Patient" style="width: 100%;"> 	
+							</div>
+							</div>
+							
+							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="text-align: left;">
+								<input type="button" value="Refresh" class="btn btn-primary"  onclick="clearAll()" />&nbsp;&nbsp;&nbsp;
+								<a class="btn btn-success" href="#" onclick="openBlankPopup('salepriscPharmacy')" title="New Sale" >New Sale</a>
 								
-						-->
-						</table>
-					</td>
-				</tr>
+							</div>
+							
+							
+							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="text-align: right;">
+								<span><i class="fa fa-square" aria-hidden="true" style="color: #e05d6f;"></i> Narcotics &nbsp; | &nbsp; <i class="fa fa-square" aria-hidden="true" style="color: #e69522;"></i> H1</span>
+							</div>
+							
+							</div>
+							
+							
+								<div class="col-lg-12 col-md-12 col-sm-12" style="padding:0px;padding-top: 8px;">
+								<div class="col-lg-1 col-md-1 col-sm-2 col-xs-4">
+										<div class="form-group">
+										    <label for="inputEmail3" class="text-left">B.NO</label>
+										    <p>-</p>
+										    <input type="hidden" id="extpid" name="extpid" />
+										    <input type="hidden" id="tpid" value="0" name="tpid" />
+								  		</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-2 col-xs-4">
+										<div class="form-group">
+										    <label for="inputEmail3" class="text-left">PATIENT NAME</label> 
+										    <s:textfield readonly="true" onchange="updatePharmaClientInfo(this.value,'fullname')" cssClass="form-control" name="fullname" id="fullname" cssStyle="text-transform: uppercase;"/>
+								  		</div>
+								  		
+									</div>
+									<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+										<div class="form-group">
+										    <label for="inputEmail3" class="text-left">MOBILE</label>
+										    <s:textfield readonly="true" onchange="updatePharmaClientInfo(this.value,'mobile')" cssClass="form-control" name="mobno" id="mobile" maxlength="10"/>
+								  		</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
+	                                		<div class="form-group">
+											    <label for="inputEmail3" class="text-left">ADDRESS</label>
+											    <s:textfield readonly="true" onchange="updatePharmaClientInfo(this.value,'address')" cssClass="form-control" name="wardname" id="wardname" cssStyle="text-transform: uppercase;"/>
+									  		</div>
+									</div>
+									
+									<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+										<div class="form-group">
+										    <label for="inputEmail3" class="text-left">DR. NAME</label>
+										    	<!--<select class="form-control chosen hidden">
+										    		<option>Select Doctor</option>
+										    		<option>Dr.Abc</option>
+										    		<option>Dr.Abc</option>
+										    		<option>Dr.Abc</option>
+										    	</select>
+										      --><s:textfield readonly="true" onchange="updatePharmaClientInfo(this.value,'reference')" cssClass="form-control" name="practitionerName" id="doctor"  cssStyle="text-transform: uppercase;"/>
+								  		</div>
+									</div>
+									<div class="col-lg-1 col-md-1 col-sm-1 col-xs-4">
+										<div class="form-group">
+										    <label for="inputEmail3" class="text-left">DATE</label>
+										     <s:if test="back_date_access==1">
+										    	<s:textfield cssClass="form-control" id="date" name="dateTime" /> 
+										     </s:if> 
+										     <s:else>
+										    		 <s:textfield readonly="true" cssClass="form-control" id="date1" name="dateTime" />
+										     </s:else>
+										    
+								  		</div>
+									</div>
+							</div>
+							
+							
+							<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12" style="padding:0px;">
+									
+									<div class="col-lg-9 col-sm-12 col-md-9 col-xs-12 rightset">
+									
+										
+									
+									<s:hidden name="paymode" id="paymode"></s:hidden>
+									<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 padsets" style="background-color: #dff0d8;padding: 14px 0px 0px 11px;padding-bottom: 0px;">
+								         <div class="form-inline disinset">
+								         <div class="form-group hidden-xs" style="">
+								                <input type="text" id="barcode" onchange="addBarcodeRequest(this.value)" class="form-control" placeholder="Barcode Here" autofocus="autofocus" style="width:100%;" />
+								          </div>
+								          <div class="form-group hidden-xs">
+								           <p style="font-size: 13px;margin: 0px 0px 2px;">Medicine :</p> 
+								          </div>
+								          
+								          <div class="form-group set100">
+								            <select class="form-control chosen-select" >
+								            	<option value="0">Select Product</option>
+								            	<option value="0">jean black</option>
+								            	<option value="0">jeans red</option>
+								            	<option value="0">jeans blue</option>
+								            	<option value="0">jeans blue</option>
+								            	<option value="0">jeans blue</option>
+								            </select>
+								          </div>
+								          <div class="form-group qtyset" style="width: 5%;">
+								                <input type="text" id="qty" class="form-control" placeholder="Qty" style="width:100%;"/>
+								          </div>
+								          <a href="#" onclick="addnewRow('mytable')" title="Add New" class="plusbtnse"><i class="fa fa-plus-circle" aria-hidden="true" style="font-size: 25px;padding-top: -8px;">+</i></a>
+								         
+								         </div>
+         								</div>
+         								
+         								<div class="minhesigh">
+										<table id="results" cellpadding="0" cellspacing="0" class="my-table"  style="width:100%;">
+                                <thead>
+                                    <tr class="tableback"> 
+                                    	<th style="background:transparent url('common/images/table_header.gif') no-repeat scroll 0 0;">Gender</th>
+                                    	<th style="background:transparent url('common/images/table_header.gif') no-repeat scroll 0 0;">Gender</th>
+                                    	<th style="background:transparent url('common/images/table_header.gif') no-repeat scroll 0 0;">Gender</th>
+                                    	<th style="background:transparent url('common/images/table_header.gif') no-repeat scroll 0 0;">Gender</th>
+                                    	<th style="background:transparent url('common/images/table_header.gif') no-repeat scroll 0 0;">Gender</th>
+                                    	<th style="background:transparent url('common/images/table_header.gif') no-repeat scroll 0 0;">Gender</th>
+                                       	
+                                    </tr>
+                                    </thead>
+                                    </table>
+                                
+                                
+								
+								
+                           
+                            
+									</div>
+						</div>
+						
+							<div class="col-lg-3 col-sm-12 col-md-3 col-xs-12">
+										<div class="col-lg-12 col-xs-12 col-md-12" style="padding: 0px;border-bottom: 1px solid #ddd;" id="baldiv">
+											<h3 style="color:#d9534f;">Balance : <span style="float: right;" >Rs.<span id="rebalance">00.00</span> <input type="hidden" value="0" id="prebalance" /> </span></h3>
+										</div>
+										<div class="col-lg-12 col-md-12 col-xs-12" style="padding-right: 3px;text-align: right;padding:0px;">
+			                            	<!--<h4><a href="#" title="clear Balance" onclick="clearbaldb()" class="btn btn-success btn-sm pull-left">clear balance</a>Sub Total : Rs.<span id="subtotal">00.00</span></h4>
+			                            	
+			                            	--><h4 style="color: forestgreen;"><a href="#" title="clear Balance" onclick="clearBalanceTemp()" class="btn btn-success btn-sm pull-left">clear balance</a>Sub Total : Rs.<span id="subtotal">00.00</span></h4>
+			                            	
+			                            		<h4 style="color: #868686;">Discount <select id="distype" onchange="perorrs()" class="form-control" style="width: 20%;display:-webkit-inline-box;"><option value="1">Rs.</option><option value="0">%</option></select> : <input type="text" id="discsmt" onchange="calDiscount(this.value)" class="form-control" value="0" style="width: 20%;display:-webkit-inline-box;"><br><small>Rs.<label id="tdisc">00.00</label></small></h4>
+			                            	
+			                            	<h4 class="hidden" style="color: #868686;">Refund: Rs.00.00</h4>
+			                            	<h4 class="hidden">Vat : Rs.<label id="vat">00.00</label></h4> <input type="hidden" id="tvat" name="vat"/> <input type="hidden" id="tdiscount" name="discount" />
+			                            	<h4 class="">CGST : Rs.<label id="cgst">00.00</label></h4> <input type="hidden" id="tcgst" name="cgst"/> 
+			                            	<h4 class="">SGST : Rs.<label id="sgst">00.00</label></h4> <input type="hidden" id="tsgst" name="sgst"/> 
+			                            	<h4 style="font-weight: bold;color:green;">Net Total : Rs.<span id="total">00.00</span> <input type="hidden" name="total" id="ttotal"/> </h4> 
+			                            	<h4 class="hidden" style="color: #868686;">Balance : <input type="text" name="balance" id="balance" class="form-control" value="0" style="width: 20%;"></h4>
+			                            	<h4 class=""><small>Total with balance: Rs.<span id="baltotal"></span></small></h4>
+	                            		</div>
+	                            		<div class="col-lg-12 col-md-12 col-xs-12 hidden-xs returfed">
+			                            <div class="form-inline">
+											  <div class="form-group" style="width: 49%">
+											    <label for="exampleInputName2">Received Rs.</label>
+											    <s:textfield onkeyup="getRemainAmt(this.value)" id="received" name="payamt" cssClass="form-control" cssStyle="width: 43%;background-color: rgba(165, 42, 42, 0.07);" />
+											  </div>
+											  <div class="form-group" style="width: 49%;">
+											    <label for="exampleInputEmail2">Return Rs.</label>
+											    <input id="returnamt" type="text" class="form-control" style="width: 45%;background-color: rgba(165, 42, 42, 0.07);">
+											  </div>
+											</div>
+											
+			                             </div>
+			                             <div class="col-lg-12 col-md-12 col-xs-12 text-right" style="padding:0px;">
+			                             <div class="form-group">
+			                             	<s:textarea theme="simple" cssClass="form-control"  name="notes" rows="3" placeholder="Write Note" cssStyle="height: 50px !important;"/>
+			                             </div>
+	                            
+	                            
+	                            <div class="form-group" >
+	                            	<select class="form-control" style="width: 100%;"  id="paytype" onchange="setPaymode(this.value)" style="background-color: rgba(255, 140, 0, 0.36);">
+	                            	<option value="Cash">CASH</option>
+	                            	<option value="Card">CARD</option>
+	                            	<option value="Cheque">CHEQUE</option>
+	                            	<option value="NEFT">NEFT/RTGS</option>
+	                            	<option value="Credit">CREDIT</option>
+	                            	<option value="Estimate">ESTIMATE</option>
+	                            	<option value="Hospital">HOSPITAL</option>
+	                            </select>
+	                            </div>
+	                             <div class="form-group">
+	                            	<input type="text" id="card" name="card" placeholder="Enter 4 Digit No" class="form-control hidden"  />
+	                            </div>
+	                             <div class="form-group">
+	                            	<input type="number" id="chequeno" name="chequeno" placeholder="Enter Cheque No" class="form-control hidden"  />
+	                            </div>
+	                             <div class="form-group">
+	                            	<input type="text" id="neftid" name="neftid" placeholder="Enter Transaction ID" class="form-control hidden"  />
+	                            </div>
+	                            
+	                            <div class="form-group">
+	                            	<a type="button" class="btn btn-primary" onclick="newsale()">Save & Print</a>
+	                            </div>
+	                            
+			                             <span class="hidden" style="float: left;font-size: 15px;color: darkblue;">Item : 0</span>
+                            	<a type="button" class="btn btn-primary hidden"  title="Online Payment" onclick="newsale('Online')">Online</a>
+                            	<!--<a type="button" class="btn btn-primary"  title="Credit" onclick="credit()">Credit</a>-->
+                            	
+                            	<a type="button" class="btn btn-info hidden"  title="Estimate" onclick="newsale('Estimate')" style="float: left;">Estimate</a>
+	                            <a type="button" class="btn btn-primary hidden"  title="Cash Payment" onclick="newsale('Cash')">Save & Print</a>
+	                            <a type="button" class="btn btn-warning hidden"  title="Card Payment" onclick="showCard()">Card Payment</a>
+	                            
+	                            
+                            </div>
+                           <div class="col-lg-12 col-xs-12 col-md-12 text-right" style="margin-top: 15px;padding:0px;">
+                            <div id="divcard" class="hidden">
+                            	<div class="form-inline">
+								  <div class="form-group">
+								    <label class="sr-only" for="exampleInputEmail3">Email address</label>
+								    
+								  </div>
+								  
+								  <a type="button" class="btn btn-warning"  onclick="newsale('Card')" style="margin-top: -15px;"> Save & Print</a>
+								</div>
+                            	 <br>
+                            	
+                            	
+                            </div>
+                            </div>
+										
+									</div>
+						
+						</div>
+						</s:form>
 
-			</table>
-			
-			<br>
-			<table width="100%">
-				<tr>
-					<td>SALES MAN :</td>
-					<td><s:select cssStyle="width:100px;" name="employeeid"
-							list="populatedSalesManList" listKey="employeeid" 
-							listValue="name" headerKey="0" headerValue="Select Employee" /></td>
+<!-- <div class="container">
+  <h2>Modal Example</h2>
+  Trigger the modal with a button
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
-					<td>SELECT CLIENT :</td>
-					<td><s:select onchange="getClientInfo(this.value)"
-							cssStyle="width:151px;" name="customerid" list="customerList"
-							listKey="id" listValue="name" cssClass="chosen-select"  headerKey="0"
-							headerValue="Select User" /></td>
-
-					<td>CLIENT NAME :</td>
-					<td><s:textfield placeholder="Enter Client Name"
-							name="customerName" id="customerName" size="15" /></td>
-					<td>MOBILE NO :</td>
-					<td><s:textfield placeholder="Enter Mobile No" name="mobileNo"
-							id="mobileNo" size="10" maxlength="10" /></td>
-				</tr>
-
-			</table>
-			
-			
-				<table width="100%">
-							<tr>
-								<td>Payment Mode<span class="reqd-info">*</span></td>
-								<td align="center">:</td>
-								<td><select name="howpaid" id="howpaid"
-									class="form-control">
-										<option value="Cash">Cash</option>
-										<option value="C/Card">C/Card</option>
-										<option value="Cheque">Cheque</option>
-										<option value="D/Card">D/Card</option>
-										<option value="Other">Other</option>
-
-
-
-								</select></td>
-							</tr>
-
-							<tr>
-								<td>Payment Received<span class="reqd-info">*</span></td>
-								<td align="center">:</td>
-								<td><s:textfield
-										onkeypress="return isNumberKey(event,this);"
-										cssStyle="width:65px;text-align:center;" id="paymentrecieved"
-										name="paymentrecieved" maxlength="10"
-										title="Enter Payment Recieved" /></td>
-							</tr>
-							<tr>
-								<td>Payment Note<span class="reqd-info">*</span></td>
-								<td align="center">:</td>
-								<td><s:textarea rows="3" cols="40" id="paymentnote"
-										name="paymentnote" title="Enter Payment Recieved" /></td>
-							</tr>
-
-							<tr>
-								<td>Make Primary Bill <input type="radio" id="p1"
-									name="billType" value="1" />
-
-								</td>
-								<td></td>
-								<td>Make Secondary Bill <input type="radio" id="p2"
-									name="billType" value="2" checked="checked" /></td>
-							</tr>
-
-							<tr>
-								<td><input type="button" value=" Next to Create Bill "
-									id="billbtn" onclick="savepurchasedata()"></td>
-							</tr>
-
-						</table>
-			
-
-			<script
-				src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"
-				type="text/javascript"></script>
-			<script src="chosen/chosen.jquery.js" type="text/javascript"></script>
-			<script src="chosen/docsupport/prism.js" type="text/javascript"
-				charset="utf-8"></script>
-			<script type="text/javascript">
-				var config = {
-					'.chosen-select' : {},
-					'.chosen-select-deselect' : {
-						allow_single_deselect : true
-					},
-					'.chosen-select-no-single' : {
-						disable_search_threshold : 10
-					},
-					'.chosen-select-no-results' : {
-						no_results_text : 'Oops, nothing found!'
-					},
-					'.chosen-select-width' : {
-						width : "95%"
-					}
-				}
-				for ( var selector in config) {
-					$(selector).chosen(config[selector]);
-				}
-			</script>
-
-
-
-
-
-
-
-
-
-		</s:form>
-
-
-	</div>
+  Modal
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      Modal content
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
 </div>
+ -->
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"
+    type="text/javascript"></script>
+   <script src="chosen/chosen.jquery.js" type="text/javascript"></script>
+   <script src="chosen/docsupport/prism.js" type="text/javascript"
+    charset="utf-8"></script>
+   <script type="text/javascript">
+    var config = {
+     '.chosen-select' : {},
+     '.chosen-select-deselect' : {
+      allow_single_deselect : true
+     },
+     '.chosen-select-no-single' : {
+      disable_search_threshold : 10
+     },
+     '.chosen-select-no-results' : {
+      no_results_text : 'Oops, nothing found!'
+     },
+     '.chosen-select-width' : {
+      width : "95%"
+     }
+    }
+    for ( var selector in config) {
+     $(selector).chosen(config[selector]);
+    }
+   </script>
